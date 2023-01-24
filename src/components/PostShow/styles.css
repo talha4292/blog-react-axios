@@ -1,0 +1,25 @@
+.icon-margin {
+  margin-left: 2%;
+}
+
+.icon-color {
+  color: black;
+}
+
+.title-style {
+  font-size: 50px;
+}
+
+.inline-style {
+  display: inline;
+}
+
+.like-button {
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+.reply-margin {
+  margin-left: 10%;
+}
