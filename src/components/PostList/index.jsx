@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react'
 import getPosts from '../../api'
 import PostItem from '../PostItem'
+import Loader from "../Loader";
 
 const PostList = () => {
   const [posts, setPosts] = useState([])
+  const [loader, setLoader] = useState(true)
 
   const fetchPosts = async () => {
     const res = await getPosts('/posts')
     setPosts(res.data)
+    setLoader(false);
   }
 
   useEffect(() => {
@@ -22,6 +25,7 @@ const PostList = () => {
           return <PostItem key={post.id} post={post} />
         })}
       </div>
+      {loader && <Loader />}
     </div>
   )
 }
