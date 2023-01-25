@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import getPosts from '../../api'
 import PostItem from '../PostItem'
-import Loader from "../Loader";
+import Loader from '../Loader'
 
 const PostList = () => {
   const [posts, setPosts] = useState([])
@@ -10,7 +10,7 @@ const PostList = () => {
   const fetchPosts = async () => {
     const res = await getPosts('/posts')
     setPosts(res.data)
-    setLoader(false);
+    setLoader(false)
   }
 
   useEffect(() => {

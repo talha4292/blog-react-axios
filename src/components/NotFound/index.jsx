@@ -1,7 +1,7 @@
 import './styles.css'
 
 const NotFound = (props) => {
-  return(
+  return (
     <div class='not-found'>
       <h1>Error</h1>
       <h2>{props.type} Not Found</h2>

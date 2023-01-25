@@ -14,7 +14,7 @@ function App () {
           <Route exact path='/' element={<PostList />} />
           <Route exact path='/posts' element={<PostList />} />
           <Route exact path='/posts/:id' element={<PostShow />} />
-          <Route exact path='*' element={<NotFound type={'Page'}/>} />
+          <Route exact path='*' element={<NotFound type='Page' />} />
         </Routes>
       </div>
     </Router>
