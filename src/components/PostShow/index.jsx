@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react'
+import { Link, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import getPosts from '../../api'
 import './styles.css'
 import RichTextRenderer from '../RichTextRenderer'
 import { FaRegComment, FaRegFlag, FaRegHeart } from 'react-icons/fa'
+import NotFound from '../../components/NotFound'
 
 const PostShow = () => {
-  const [post, setPost] = useState({ user: { image: null }, likes: [], comments: [] })
+  const [post, setPost] = useState({user: { image: null }, likes: [], comments: [] })
   const { id } = useParams()
 
   const fetchPost = async () => {
@@ -20,6 +21,7 @@ const PostShow = () => {
 
   return (
     <div>
+    { post.id ? <div>
       <img class='rounded-circle' src={post.user.image ? post.user.image : require('../../assets/dp-avatar.jpg')} alt='img' width='50' height='50' />
       <b class='lead'><b> {post.user.username}</b></b>
       <hr />
@@ -49,8 +51,10 @@ const PostShow = () => {
       </p>
 
       <br /><br /><br />
+    </div> : <NotFound type={'Data'}/>}
     </div>
   )
+    
 }
 
 export default PostShow
