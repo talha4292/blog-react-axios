@@ -8,9 +8,13 @@ const PostList = () => {
   const [loader, setLoader] = useState(true)
 
   const fetchPosts = async () => {
-    const res = await getPosts('/posts')
-    setPosts(res.data)
-    setLoader(false)
+    try {
+      const res = await getPosts('/posts')
+      setPosts(res.data)
+      setLoader(false)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   useEffect(() => {
@@ -21,9 +25,7 @@ const PostList = () => {
     <div>
       <h1>My Posts</h1><br />
       <div class='container-fluid'>
-        {posts.map((post) => {
-          return <PostItem key={post.id} post={post} />
-        })}
+        {posts.map((post) => <PostItem key={post.id} post={post} />)}
       </div>
       {loader && <Loader />}
     </div>

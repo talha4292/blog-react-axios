@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom'
 import './styles.css'
 
-const Post = (props) => {
-  const post = props.post
-  const user = post.user
+const Post = ({ post, post: { user } }) => {
   return (
     <div>
       <div class='col-md-4'>
